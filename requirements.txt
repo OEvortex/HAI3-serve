@@ -1,0 +1,16 @@
+# Core dependencies for vLLM-like serving
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+transformers==4.45.0
+torch>=2.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+sse-starlette==1.8.2
+accelerate==0.25.0
+sentencepiece
+protobuf
+numpy
+typing-extensions
+
+# Basic tool calling support
+jsonschema==4.20.0

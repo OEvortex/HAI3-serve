@@ -193,14 +193,6 @@ fabric.properties
 ehthumbs.db
 Thumbs.db
 
-# Model files and cache
-models/
-*.bin
-*.safetensors
-*.gguf
-*.ggml
-huggingface_cache/
-transformers_cache/
 
 # Logs
 logs/

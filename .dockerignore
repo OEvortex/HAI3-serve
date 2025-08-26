@@ -1,0 +1,76 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Model files (will be downloaded in container)
+models/
+*.bin
+*.safetensors
+*.gguf
+*.ggml
+
+# Cache directories
+huggingface_cache/
+transformers_cache/
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Test files
+test_*.py
+tests/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker files (avoid recursive copying)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Development tools
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/

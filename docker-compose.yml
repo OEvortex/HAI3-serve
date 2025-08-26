@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  hai3-serve:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hai3-serve:latest
+    container_name: hai3-serve
+    ports:
+      - "8000:8000"
+    environment:
+      # Model configuration
+      - MODEL_NAME=HelpingAI/hai3.1-checkpoint-0002
+      - DEVICE=auto
+      - HOST=0.0.0.0
+      - PORT=8000
+      
+      # Generation settings
+      - MAX_TOKENS=2048
+      - TEMPERATURE=0.7
+      - TOP_P=0.9
+      
+      # Performance settings
+      - TORCH_DTYPE=auto
+      - TRUST_REMOTE_CODE=true
+      
+      # Logging
+      - LOG_LEVEL=info
+    volumes:
+      # Model cache persistence
+      - hai3_models:/root/.cache/huggingface
+      - ./logs:/app/logs
+    restart: unless-stopped
+    
+    # GPU support (uncomment if using GPU)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    # Resource limits
+    mem_limit: 16g
+    memswap_limit: 16g
+    shm_size: 2g
+
+volumes:
+  hai3_models:
+    driver: local

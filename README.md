@@ -113,10 +113,6 @@ curl -X POST "http://localhost:8000/v1/chat/completions" \
 Run the test suite to verify functionality:
 
 ```bash
-# Basic API tests
-python test_api.py
-
-# Comprehensive vLLM-like tests
 python test_vllm_like.py
 ```
 
